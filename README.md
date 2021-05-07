@@ -1,10 +1,8 @@
 # ETL PROJECT
 
-## Extract Transform Load WORLD HAPPINESS and Weather
+## Extract Transform Load WORLD HAPPINESS and Population
 
 ![Happinness](Images/3.jpg)
-
-
 
 ### Intention of the Repository
 
@@ -43,9 +41,6 @@ Happiness, a word that evokes several emotions in humans. It's that feeling most
 
 To do this, we pulled two data sets, one describing each country's happiness level and the other that contained the population amount per country. We then merged these two data sets to create on master data set on our database for future analysis.
 
-
-
-
 ![Happinness](Images/2.png)
 
 #### Project's Challanges
@@ -56,11 +51,204 @@ To do this, we pulled two data sets, one describing each country's happiness lev
    1. Looking for N/A
    2. Looking for duplicated values
    3. Dropping unwanted columns
+   4. Identifying total countries in both data sets
+   5. Matching the total countries of both data sets
 4. Creating new data frames
 5. Pushing the data sets to our data base
 6. Reading the data on out data base
 7. Joining both data sets to create one data set with both sets of information
 
-#### Project's out come
+#### Project's Documentation
+
+On the following session you will encounter the documentation for our ETL process. This means we will go over step by step.
+
+##### Step 1:
+
+Creating the idea. We accomplished this by brainstorming on potential relationship bewteen variables that would or could indicate some causation. Even though we are not analysing the results we created a final model to show case the final results. At the end of the day we wanted this to make sense.
+
+##### Step 2:
+
+Gatehring the data. After choosing our main topic world happiness and selecting what we considered to be a variable that had on effect on it (population and population density) we went into data sources to gather our initial data sets. We decided to go with Kaggel and two different data sources that had the information we needed. Source one was the World Happiness data set and the second source was the population per country.
+
+##### Step 3:
+
+After we downloaded out files into our computer then we read said files on a jupyter note book using pandas.
+
+##### Step 4:
+
+We looked at the data and started the filtering process to get our final two data sets.
+
+* World Happiness Data:
+  * We transformed the data frame using only the following columns:
+    * "Country name", "Ladder score"
+  * We renamed the columns to fit our needs:
+    * "Country name": "Country_name",
+      "Ladder score": "Ranking"
+  * Final result:
+    * Data base that had the Country_name as index and the ranking acording to the original data set.
+    * The total countries in this data set matched after transforming our data with the ladder data set
+* Population Data:
+  * We transformed the data frame using only the following columns:
+    * "Location", "Time","PopTotal", "PopDensity"
+  * We renamed the columns to fit our needs:
+    * "Location": "Country_name",
+      "Time": "Year",
+      "PopTotal":"Total_Population",
+      "PopDensity" : "Population_Density"
+  * We transformed the data to show only the data for the year 2019 to match out happiness data
+  * When then filtered the country_names to match the country_names on our happieness data city_names
+  * The total countries in this data set matched after transforming our data with the ladder data set
+
+##### Step 5:
+
+We created our data base using postgres
+
+* The name of the data base is world_happiness_db
+
+##### Step 6:
+
+We created the tables that we wanted the data to be stored in, and, gave it its primary key
+
+* Table 1: world_happiness
+  * CREATE TABLE world_happiness (
+    id INT PRIMARY KEY NOT NULL,
+    Country_name TEXT NOT NULL,
+    Ranking INT NOT NULL
+    );
+* Table 2: population
+  * CREATE TABLE population(
+    id INT PRIMARY KEY,
+    Country_name TEXT NOT NULL,
+    Total_Population INT NOT NULL,
+    Population_Density INT NOT NULL,
+    );
+
+##### Step 7:
+
+We created the data base connection from out jupyter notebook
+
+* connection_string = "postgres:postgres@localhost:5432/world_happiness_db"
+  engine = create_engine(f'postgresql://{connection_string}')
+
+##### Step 8:
+
+We confirmed the connection with the following query:
+
+* engine.table_names()
+
+##### Step 9:
+
+We loaded the data into our database
+
+* population_transformed.to_sql(name='population', con=engine, if_exists='append', index=True)
+* world_happiness_transformed.to_sql(name='world_happiness', con=engine, if_exists='append', index=True)
+
+##### Step 10:
+
+Inside postgres we ran the following queries to see if the data was properly read and stored
+
+* SELECT * FROM population;
+* SELECT * FROM world_happiness;
+
+##### Step 11:
+
+We joined both data sets using the primary key in order to display the ranking acording to the happiness index and the total population as well as the population density of each country in the year of 2019.
+
+* SELECT world_happiness.id, world_happiness.Country_name, world_happiness.Ranking, population.Country_name, population.Total_Population, population.Population_Density
+  FROM world_happiness
+  INNER JOIN population
+  ON world_happiness.id = population.id;
+
+##### Step 12:
+
+We read the data to inspect that it was joined properly and that all the data was displayed in one table.
+
+##### Step 13:
+
+We created a view of this new table called world_happiness_vs_population with the following query:
+
+* CREATE VIEW AS world_happiness_vs_population
+* SELECT world_happiness.id, world_happiness.Country_name, world_happiness.Ranking, population.id, population.Country_name, population.Total_Population, population.Population_Density
+  FROM world_happiness
+  INNER JOIN population
+  ON world_happiness.id = population.id;
+
+#### Project's Outcome
 
 ![Happinness](Images/4.jfif)
+
+On this section you can find screen shots of our step by step described on the previouse section "Project's Documentation"
+
+##### Step 1
+
+![Step one](Images/step1.jfif)
+
+##### Step 2
+
+![Step two](Images/step2.png)
+
+![Step 2.1](Images/step2.1.png)
+
+##### Step 3
+
+![Step three](Images/step3.png)
+
+![Step three](Images/step3.1.png)
+
+##### Step 4
+
+![Step four](Images/step4.png)
+
+![Step four](Images/step4.1.png)
+
+
+![Step four](Images/step4.2.png)
+
+![Step four](Images/step4.3.png)
+
+![Step four](Images/step4.4.png)
+
+![Step four.5](Images/step4.5.png)
+
+
+![Step four](Images/step4.6.png)
+
+![Step four](Images/step4.7.png)
+
+
+
+##### Step 5
+
+![Step 5](Images/step5.png)
+
+##### Step 6
+
+![Step six](Images/step6.png)
+
+##### Step 7
+
+![Step seven](Images/step7.png)
+
+##### Step 8
+
+![Step eight](Images/step8.png)
+
+##### Step 9
+
+![Step nine](Images/step9.png)
+
+##### Step 10
+
+![Step ten](Images/step10.png)
+
+##### Step 11
+
+![Step eleven](Images/step11.png)
+
+##### Step 12
+
+![Step twelve](Images/step12.png)
+
+##### Step 13
+
+![Step thirdteen](Images/step13.png)
