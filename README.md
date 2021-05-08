@@ -72,55 +72,104 @@ Gatehring the data. After choosing our main topic world happiness and selecting 
 
 ##### Step 3:
 
-After we downloaded out files into our computer then we read said files on a jupyter note book using pandas.
+After we downloaded our files into our computer then we read said files on a jupyter note book using pandas.
 
 ##### Step 4:
 
-We looked at the data and started the filtering process to get our final two data sets.
+We looked at the data and started the transforming process to get our final two data sets.
 
-* World Happiness Data:
-  * We transformed the data frame using only the following columns:
-    * "Country name", "Ladder score"
-  * We renamed the columns to fit our needs:
-    * "Country name": "Country_name",
-      "Ladder score": "Ranking"
-  * Final result:
-    * Data base that had the Country_name as index and the ranking acording to the original data set.
+* 4.1
+
+  * World Happiness Data:
+    * Create a filtered dataframe from specific columns
+      * "Country name", "Ladder score"
+    * We renamed the columns to fit our needs:
+      * "Country name": "Country_name",
+        "Ladder score": "Ranking"
+    * Clean the data by dropping duplicates and setting the index
+    * Drop any duplicated data adn printed the unique values as a total
+* 4.2
+
+  * Getting the list of countries in the data set
+    * country_names variable
+* 4.3-4.4
+
+  * Population Data:
+
+    * We transformed the data frame using only the following columns:
+
+      * "Location", "Time","PopTotal", "PopDensity"
+    * We renamed the columns to fit our needs:
+
+      * "Location": "Country_name",
+        "Time": "Year",
+        "PopTotal":"Total_Population",
+        "PopDensity" : "Population_Density"
+    * We transformed the data to show only the data for the year 2019 to match out happiness data
+    * When then filtered the country_names to match the country_names on our happieness data city_names
     * The total countries in this data set matched after transforming our data with the ladder data set
-* Population Data:
-  * We transformed the data frame using only the following columns:
-    * "Location", "Time","PopTotal", "PopDensity"
-  * We renamed the columns to fit our needs:
-    * "Location": "Country_name",
-      "Time": "Year",
-      "PopTotal":"Total_Population",
-      "PopDensity" : "Population_Density"
-  * We transformed the data to show only the data for the year 2019 to match out happiness data
-  * When then filtered the country_names to match the country_names on our happieness data city_names
-  * The total countries in this data set matched after transforming our data with the ladder data set
+* 4.5
+
+  * Filtering the data of populaiton df to match the country names in the world_happienss_df
+  * Drop additional columns such as index and year
+* 4.6
+
+  * We set the ID as an index (pop data)
+  * Display final df (pop data)
+* 4.7
+
+  * checking the lenght of data set to see if they match
+  * Since they did not match we had to transforme the data even more.
+* 4.8
+
+  * Getting list of country_names in population df
+* 4.9
+
+  * Filtering the data of world happiness df to match the country names in the final_pop_df
+  * Sorting values by country name, reseting the index of the country to match the other database and dropping extra column after reset index
+  * Checking country with highest rank
+* 4.10
+
+  * Setting id as index on df to create the key (word data)
+* 4.11
+
+  * Getting final df
+* 4.12
+
+  * Checking new length of happines data frame to see if it matches the pop data frame
+* 4.13
+
+  * Merging the df to see if it worked using pandas in jupyterlab
 
 ##### Step 5:
 
 We created our data base using postgres
 
+* 5.1
+
+  * Confirm tables
 * The name of the data base is world_happiness_db
 
 ##### Step 6:
 
 We created the tables that we wanted the data to be stored in, and, gave it its primary key
 
+* DROP statement in case we had existing tables
+  * DROP TABLE IF EXISTS world_happiness;
+  * DROP TABLE IF EXISTS population;
+  * DROP TABLE IF EXISTS merged;
 * Table 1: world_happiness
   * CREATE TABLE world_happiness (
-    id INT PRIMARY KEY NOT NULL,
-    Country_name TEXT NOT NULL,
-    Ranking INT NOT NULL
+    id INT PRIMARY KEY,
+    Country_name TEXT,
+    Ranking FLOAT
     );
 * Table 2: population
-  * CREATE TABLE population(
+  * CREATE TABLE population (
     id INT PRIMARY KEY,
-    Country_name TEXT NOT NULL,
-    Total_Population INT NOT NULL,
-    Population_Density INT NOT NULL,
+    Country_name TEXT,
+    Total_Population INT,
+    Population_Density INT
     );
 
 ##### Step 7:
@@ -152,26 +201,19 @@ Inside postgres we ran the following queries to see if the data was properly rea
 
 ##### Step 11:
 
-We joined both data sets using the primary key in order to display the ranking acording to the happiness index and the total population as well as the population density of each country in the year of 2019.
+We joined both data sets using the primary key in order to display the ranking acording to the happiness index and the total population as well as the population density of each country in the year of 2019. We named this table merged
 
-* SELECT world_happiness.id, world_happiness.Country_name, world_happiness.Ranking, population.Country_name, population.Total_Population, population.Population_Density
+* CREATE TABLE merged AS
+  SELECT world_happiness.id, world_happiness.country_name, world_happiness.ranking, population.total_population, population.population_density
   FROM world_happiness
-  INNER JOIN population
+  JOIN population
   ON world_happiness.id = population.id;
 
 ##### Step 12:
 
 We read the data to inspect that it was joined properly and that all the data was displayed in one table.
 
-##### Step 13:
-
-We created a view of this new table called world_happiness_vs_population with the following query:
-
-* CREATE VIEW AS world_happiness_vs_population
-* SELECT world_happiness.id, world_happiness.Country_name, world_happiness.Ranking, population.id, population.Country_name, population.Total_Population, population.Population_Density
-  FROM world_happiness
-  INNER JOIN population
-  ON world_happiness.id = population.id;
+* SELECT * FROM merged;
 
 #### Project's Outcome
 
@@ -197,25 +239,27 @@ On this section you can find screen shots of our step by step described on the p
 
 ##### Step 4
 
-![Step four](Images/step4.png)
-
 ![Step four](Images/step4.1.png)
 
 
 ![Step four](Images/step4.2.png)
 
+
+
+![Step four](Images/step4.2.png)
+
+
 ![Step four](Images/step4.3.png)
+
+
 
 ![Step four](Images/step4.4.png)
 
 ![Step four.5](Images/step4.5.png)
 
-
 ![Step four](Images/step4.6.png)
 
 ![Step four](Images/step4.7.png)
-
-
 
 ##### Step 5
 
