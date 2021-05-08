@@ -1,34 +1,19 @@
+-- Drop if it already exists
+DROP TABLE IF EXISTS world_happiness;
+DROP TABLE IF EXISTS population;
+DROP TABLE IF EXISTS merged;
 -- Create Two Tables
-CREATE TABLE public.world_happiness
-(
-    "Country_name" text COLLATE pg_catalog."default" NOT NULL,
-    "Year" integer NOT NULL,
-    "Total_Population" integer NOT NULL,
-    "Population_Density" integer NOT NULL,
-    CONSTRAINT world_happiness_pkey PRIMARY KEY (Country_name)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+CREATE TABLE world_happiness (
+  id INT PRIMARY KEY,
+  Country_name TEXT,
+  Ranking FLOAT
+);
 
-ALTER TABLE public.world_happiness
-    OWNER to postgres;
-    
-    
--- Table 2
-CREATE TABLE public.population
-(
-    "Country_name" text COLLATE pg_catalog."default" NOT NULL,
-    "Year" integer NOT NULL,
-    "Total_Population" integer NOT NULL,
-    "Population_Density" integer NOT NULL,
-    CONSTRAINT population PRIMARY KEY (Country_name)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+CREATE TABLE population (
+  id INT PRIMARY KEY,
+  Country_name TEXT,
+  Total_Population INT,
+  Population_Density INT
+);
 
-ALTER TABLE public.population
-    OWNER to postgres;
+
