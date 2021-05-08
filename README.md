@@ -239,60 +239,63 @@ On this section you can find screen shots of our step by step described on the p
 
 ##### Step 4
 
-![Step four](Images/step4.1.png)
-
-
-![Step four](Images/step4.2.png)
-
-
-
-![Step four](Images/step4.2.png)
-
-
-![Step four](Images/step4.3.png)
-
-
-
-![Step four](Images/step4.4.png)
-
-![Step four.5](Images/step4.5.png)
-
-![Step four](Images/step4.6.png)
-
-![Step four](Images/step4.7.png)
+* 4.1
+  * ![4.1](Images/step4.1.png)
+* 4.2
+  * ![4.2](Images/step4.2.png)
+* 4.3
+  * ![4.2](Images/step4.3.png)
+* 4.4
+  * ![4.4](Images/step4.4.png)
+* 4.5
+  * ![4.5](Images/step4.5.png)
+* 4.6
+  * ![4.6](Images/step4.6.png)
+* 4.7
+  * ![4.7](Images/step4.7.png)
+* 4.8
+  * ![4.8](Images/step4.8.png)
+* 4.9
+  * ![4.9](Images/step4.9.png)
+* 4.10
+  * ![4.10](Images/step4.10.png)
+* 4.11
+  * ![4.11](Images/step4.11.png)
+* 4.12
+  * ![4.12](Images/step4.12.png)
+* 4.13
+  * ![4.13](Images/step4.13.png)
 
 ##### Step 5
 
-![Step 5](Images/step5.png)
+![5](Images/step5.png)
 
 ##### Step 6
 
-![Step six](Images/step6.png)
+![Step six](Images/STEP6.png)
+
 
 ##### Step 7
 
 ![Step seven](Images/step7.png)
 
+
 ##### Step 8
 
-![Step eight](Images/step8.png)
+![Step 8](Images/step8.png)
 
 ##### Step 9
 
-![Step nine](Images/step9.png)
+![Step 9](Images/step9.png)
 
 ##### Step 10
 
 ![Step ten](Images/step10.png)
 
-##### Step 11
+![Step ten](Images/step10.1.png)
+
+
+
+##### Step 11 & 12
 
 ![Step eleven](Images/step11.png)
-
-##### Step 12
-
-![Step twelve](Images/step12.png)
-
-##### Step 13
-
-![Step thirdteen](Images/step13.png)
