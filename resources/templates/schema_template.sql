@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS merged;
 CREATE TABLE world_happiness (
   id INT PRIMARY KEY,
   Country_name TEXT,
-  Ranking FLOAT
+  Rank INT
 );
 
 CREATE TABLE population (
