@@ -301,6 +301,14 @@ On this section you can find screen shots of our step by step described on the p
 
 ![Step eleven](Images/step11.png)
 
+##### Final Data Base Tables
+
+![wh](Images/wht.png)
+
+![p](Images/pt.png)
+
+![merged](Images/mt.png)
+
 ## Analysis
 
 ### Aim
