@@ -21,11 +21,11 @@ In this repository, the reader will encounter our solution to the ETL project. T
 I hope you find our work not only to be complete but to display all the knowledge learned throughout this portion of the Data Science Bootcamp at Northwestern University.
 
 1. **Images**: Inside this folder, you will find the images used to create this README.MD file. *You can skip this folder if you want*.
-2. **ETL**: Inside this folder, you will have the chance to access our code for the assignment and all the output data. I encourage you to take a look inside as you will find the solution to the project. Here are what's inside:
+2. **Resources**: Inside this folder, you will have the chance to access our code for the assignment and all the output data. I encourage you to take a look inside as you will find the solution to the project. Here are what's inside:
 
-* *Resources*: You will see the CSV files that we used for the project.
-* *data_etl*: This is the final data that was created on our data base.
-* *queries*: This contains the queries that we used for our project in Postgress
+* *Templates*: You will the two jupyter notebooks one for the ETL challange and the other for analysis.
+* *data** This is the csv files used.
+* *Program files*: This contains the queries that we used for our project in Postgress
 
 3. **README.md**: it's the current file you are reading. We strongly suggest navigating through it and look at the project's objective solution and analysis.
 
@@ -274,11 +274,9 @@ On this section you can find screen shots of our step by step described on the p
 
 ![Step six](Images/STEP6.png)
 
-
 ##### Step 7
 
 ![Step seven](Images/step7.png)
-
 
 ##### Step 8
 
@@ -293,8 +291,6 @@ On this section you can find screen shots of our step by step described on the p
 ![Step ten](Images/step10.png)
 
 ![Step ten](Images/step10.1.png)
-
-
 
 ##### Step 11 & 12
 
