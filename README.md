@@ -39,7 +39,7 @@ I hope you find our work not only to be complete but to display all the knowledg
 
 Happiness, a word that evokes several emotions in humans. It's that feeling most of us are seeking. But what if there is a shortcut to experiencing this emotion. In this project, we were able to look at what country is the happiest and what the total population is per country. Yes, that's right, the number of people around you might be a predominant factor in the level of happiness one experiences, or so we think.
 
-To do this, we pulled two data sets, one describing each country's happiness level and the other that contained the population amount per country. We then merged these two data sets to create on master data set on our database for future analysis.
+To do this, we pulled two data sets, one describing each country's happiness level and the other that contained the population amount per country. We then merged these two data sets to create on master data set on our database for future analysis. When then proceeded to analyze the results to identify if population has a correlation with the happiness index a country has. 
 
 ![Happinness](Images/2.png)
 
@@ -88,6 +88,11 @@ We looked at the data and started the transforming process to get our final two 
         "Ladder score": "Ranking"
     * Clean the data by dropping duplicates and setting the index
     * Drop any duplicated data adn printed the unique values as a total
+    * We created a column named rank. This will indicate the rank of a country according to the total ladder score provided in the original data set.
+      * We filtered by ladder score.
+      * created a list of 1 - 130
+      * created the column rank
+      * inserted the list values in rank column
 * 4.2
 
   * Getting the list of countries in the data set
@@ -295,3 +300,58 @@ On this section you can find screen shots of our step by step described on the p
 ##### Step 11 & 12
 
 ![Step eleven](Images/step11.png)
+
+## Analysis
+
+### Aim
+
+Statistically prove of there is a correlation bewteen the level of happiness a country expiriences and the total population as well as the population density in the year 2019.
+
+### Hypothesis
+
+Hypothesis no. 1: There is a relationship bewteen the level of happiness a country expiriences and the total population a country has in the year 2019.
+
+Null hypothesis no. 1: There is no relationship bewteen the level of happiness a country expiriences and the total population a country has in the year 2019.
+
+Hypothesis no. 2: There is a relationship bewteen the level of happiness a country expiriences and the total population density a country has in the year 2019.
+
+Null hypothesis no.2: There is no relationship bewteen the level of happiness a country expiriences and the total population density a country has in the year 2019.
+
+### Tests being conducted
+
+Pearsons Correlation test bewteen total population variable and the following variables: 'ladder_score', 'gdp_per_capita', 'social_support', 'healthy_life_expectancy', 'freedom_life_choices', 'generosity', 'perception_corruption', 'ladder_score_dystopia'
+
+Pearsons Correlation test bewteen total population density variable and the following variables: 'ladder_score', 'gdp_per_capita', 'social_support', 'healthy_life_expectancy', 'freedom_life_choices', 'generosity', 'perception_corruption', 'ladder_score_dystopia'
+
+### Results
+
+Here our the results we gathered:
+
+1. A correaltion matrix bewteen the ladder_score (variable that determines the ranking of the country. The higher the ladder_score the higher the ranking)
+
+![correlation](Images/correlation_matrix.png)
+
+2. Figure showing the relationship bewteen Total population score and the ladder score
+   1. ![totalpop](Images/ladder_score&Total_population.png)
+3. Figure showing the relationship bewteen Population density and the ladder score
+   1. ![totalden](Images/ladder_score&Population_density.png)
+4. Figure showing the relationship bewteen ladder score and GDP
+   1. ![gdp](Images/ladder_score&GDP.png)
+5. Figure showing the relationship bewteen ladder score and Social Support
+   1. ![SS](Images/ladder_score&SS.png)
+6. Figure showing the relationship bewteen ladder score and Healthy life expectancy
+   1. ![HLE](Images/ladder_score&HLE.png)
+7. Figure showing the relationship bewteen ladder score and Freedome life choices
+   1. ![FLC](Images/ladder_score&FLC.png)
+
+## Conclusions
+
+We can **NOT** reject the null hypothesis for both tests that were run. This means that there is **NO** statistical evidence that the population total and the population density have an effect on the happiness level of each country (in the sample) for the year 2019.
+
+We can state that there is sufficient statistical analysis to when it comes to the correlation bewteen the ladder score and the following varibale for the year 2019: 1. GDP of a country 2. Social support 3. healthy life expectancy 4. Fredom Life choices. All of the variables mentioned above have a P-vlaue lower than our alpha (0.5) as shown on there graphs. They also show a strong positive correlation.
+
+Based on the statistical analysis done there is no sufficient statistical evidence to prove that the popualtion total of a country or the population density has a relationship with the level of happiness that the country expiriences.
+
+With that said, we can state that eventhough there is no statistical evidence the correlationship bewteen total population and population density with the happiness level is different. We can see there is a negative correlation bewteen total population and happiness level, where the correlation level is positive for the population density.
+
+According to the data set we can state that variables such as the GDP, Social support, Healthy life expectancy, and, Fredom Life choices have a strong positive correlation with happiness in the year 2019.
