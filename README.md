@@ -28,6 +28,7 @@ I hope you find our work not only to be complete but to display all the knowledg
 * *Program files*: This contains the queries that we used for our project in Postgress
 
 3. **README.md**: it's the current file you are reading. We strongly suggest navigating through it and look at the project's objective solution and analysis.
+4. **Project_Requirements**: You will find the requierments stablished by the Northwestern Data Visualization Boot camp. 
 
 I hope you find our work not only to be complete but to display all the knowledge learned throughout this portion of the Data Science Bootcamp at Northwestern University.
 
