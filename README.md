@@ -83,9 +83,9 @@ Once the ETL process is completed, we then performed analysis and created visual
 <!-- CONTACT -->
 ## Contributors and Contact 
 
-J.D. Strode - [@Linkedin_Profile](https://www.linkedin.com/in/j-d-strode-1609867/) 
-Jorge Daniel Altuesta - [@Linkedin_Profile](https://www.linkedin.com/in/datuesta/) 
-John Cass - [@Linkedin_Profile](https://www.linkedin.com/in/john-coleman-cass//) 
+* J.D. Strode - [@Linkedin_Profile](https://www.linkedin.com/in/j-d-strode-1609867/) 
+* Jorge Daniel Altuesta - [@Linkedin_Profile](https://www.linkedin.com/in/datuesta/) 
+* John Cass - [@Linkedin_Profile](https://www.linkedin.com/in/john-coleman-cass//) 
 
 <!-- Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name) -->
 
